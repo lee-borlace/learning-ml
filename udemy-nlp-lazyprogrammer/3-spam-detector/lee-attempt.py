@@ -26,7 +26,7 @@ for rawOrigin in rawColumn:
     else:
         Y.append(0)
 
-testNumber = 1000
+testNumber = 2000
 Xtrain = X[:-testNumber,]
 Ytrain = np.array(Y)[:-testNumber,]
 Xtest = X[-testNumber:,]
