@@ -107,6 +107,7 @@ embedding_layer = Embedding(
 )
 
 
+
 print('Building model...')
 
 # train a 1D convnet with global maxpooling
