@@ -13,5 +13,5 @@ https://github.com/huggingface/neuralcoref/issues/103
 https://github.com/explosion/spaCy/issues/2798
 
 Several differently-sized language models -
-`python -m spacy download en_core_web_s`
+`python -m spacy download en_core_web_sm`
 `python -m spacy download en_core_web_lg`
