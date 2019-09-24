@@ -1,7 +1,14 @@
 import spacy
 
+# MODEL = "en_core_web_sm"
+MODEL = "en_core_web_lg"
+
 # Load English tokenizer, tagger, parser, NER and word vectors
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load(MODEL)
+
+# Add neural coref to SpaCy's pipe
+import neuralcoref
+neuralcoref.add_to_pipe(nlp)
 
 # Process whole documents
 # text = ("When Sebastian Thrun started working on self-driving cars at "
@@ -11,13 +18,9 @@ nlp = spacy.load("en_core_web_sm")
 #         "worth talking to,” said Thrun, in an interview with Recode earlier "
 #         "this week.")
 
-text = "Chase the wolves with the stick"
+text = "The man chased the boy with his gun"
 doc = nlp(text)
 
-# Analyze syntax
-print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
-print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
 
-# Find named entities, phrases and concepts
-for entity in doc.ents:
-    print(entity.text, entity.label_)
+for token in doc:
+    print(f"TEXT={token.text},LEMMA={token.lemma_},POS={token.pos_},TAG={token.tag_},DEP={token.dep_}")

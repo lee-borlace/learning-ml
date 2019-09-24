@@ -1,4 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\Lee\\Anaconda3\\envs\\spacy\\python.exe",
+    //"python.pythonPath": "C:\\Users\\Lee\\Anaconda3\\envs\\spacy\\python.exe",
+    "python.pythonPath": "C:\\Users\\lborlace\\AppData\\Local\\Continuum\\anaconda3\\envs\\spacy\\python.exe",
     "python.linting.enabled": true
 }
