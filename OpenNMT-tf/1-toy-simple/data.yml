@@ -1,4 +1,4 @@
-model_dir: run/
+model_dir: run
 
 data:
   train_features_file: src-train.txt
