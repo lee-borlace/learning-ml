@@ -23,10 +23,8 @@ pd.set_option('display.max_colwidth', 200)
 
 EPOCHS = 100 #orig 30
 BATCH_SIZE = 512
-SAMPLE_SIZE = 150000 #orig 50000
+SAMPLE_SIZE = 170000 #orig 50000
 EMBEDDING_SIZE = 512
-MAX_SEQ_LENGTH_ENG = 15 #orig 8
-MAX_SEQ_LENGTH_DE = 15 #orig 11
 
 # ### Read Data
 
@@ -109,7 +107,6 @@ deu_eng
 # convert to lowercase
 for i in range(len(deu_eng)):
     deu_eng[i,0] = deu_eng[i,0].lower()
-    
     deu_eng[i,1] = deu_eng[i,1].lower()
 
 
@@ -171,8 +168,8 @@ def tokenization(lines):
 # prepare english tokenizer
 eng_tokenizer = tokenization(deu_eng[:, 0])
 eng_vocab_size = len(eng_tokenizer.word_index) + 1
-
-eng_length = MAX_SEQ_LENGTH_ENG
+eng_length = max(eng_l)
+print(f"Max English sequence length = {eng_length}")
 print('English Vocabulary Size: %d' % eng_vocab_size)
 
 
@@ -182,8 +179,8 @@ print('English Vocabulary Size: %d' % eng_vocab_size)
 # prepare Deutch tokenizer
 deu_tokenizer = tokenization(deu_eng[:, 1])
 deu_vocab_size = len(deu_tokenizer.word_index) + 1
-
-deu_length = MAX_SEQ_LENGTH_DE
+deu_length = max(deu_l)
+print(f"Max German sequence length = {deu_length}")
 print('Deutch Vocabulary Size: %d' % deu_vocab_size)
 
 
