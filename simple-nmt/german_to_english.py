@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ### Import Required Libraries
 # https://github.com/prateekjoshi565/machine_translation
+# Converted from Jupyter
+# pip install keras sklearn pandas matplotlib numpy tensorflow
+# Or try with tensorflow GPU
 
 # In[1]:
 
