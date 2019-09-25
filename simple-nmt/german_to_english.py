@@ -1,6 +1,6 @@
 # https://github.com/prateekjoshi565/machine_translation
 # Converted from Jupyter
-# pip install keras sklearn pandas matplotlib numpy tensorflow
+# pip install keras sklearn pandas matplotlib numpy tensorflow-gpu
 # Or try with tensorflow GPU
 
 # In[1]:
@@ -21,6 +21,8 @@ import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 pd.set_option('display.max_colwidth', 200)
 
+EPOCHS = 60
+BATCH_SIZE = 1024
 
 # ### Read Data
 
@@ -260,8 +262,10 @@ model.compile(optimizer=rms, loss='sparse_categorical_crossentropy')
 filename = 'model.h1.24_jan_19'
 checkpoint = ModelCheckpoint(filename, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
 
+
+
 history = model.fit(trainX, trainY.reshape(trainY.shape[0], trainY.shape[1], 1), 
-          epochs=30, batch_size=512, 
+          epochs=EPOCHS, batch_size=BATCH_SIZE, 
           validation_split = 0.2,
           callbacks=[checkpoint], verbose=1)
 
@@ -356,4 +360,13 @@ pred_df.tail(15)
 
 
 pred_df.sample(15)
+
+# Compare predictions with test vals
+for i in range(len(preds_text)):
+    german_val=test[i][1].strip()
+    target_val = test[i][0].strip()
+    inferred_val = preds_text[i].strip()
+    print(f"{german_val}___{target_val}___{inferred_val}")
+    
+    
 
