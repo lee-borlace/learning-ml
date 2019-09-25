@@ -21,8 +21,12 @@ import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 pd.set_option('display.max_colwidth', 200)
 
-EPOCHS = 60
-BATCH_SIZE = 1024
+EPOCHS = 100 #orig 30
+BATCH_SIZE = 512
+SAMPLE_SIZE = 150000 #orig 50000
+EMBEDDING_SIZE = 512
+MAX_SEQ_LENGTH_ENG = 15 #orig 8
+MAX_SEQ_LENGTH_DE = 15 #orig 11
 
 # ### Read Data
 
@@ -68,7 +72,7 @@ deu_eng = array(deu_eng)
 # In[5]:
 
 
-deu_eng = deu_eng[:50000,:]
+deu_eng = deu_eng[:SAMPLE_SIZE,:]
 
 
 # ### Text Pre-Processing
@@ -168,7 +172,7 @@ def tokenization(lines):
 eng_tokenizer = tokenization(deu_eng[:, 0])
 eng_vocab_size = len(eng_tokenizer.word_index) + 1
 
-eng_length = 8
+eng_length = MAX_SEQ_LENGTH_ENG
 print('English Vocabulary Size: %d' % eng_vocab_size)
 
 
@@ -179,7 +183,7 @@ print('English Vocabulary Size: %d' % eng_vocab_size)
 deu_tokenizer = tokenization(deu_eng[:, 1])
 deu_vocab_size = len(deu_tokenizer.word_index) + 1
 
-deu_length = 8
+deu_length = MAX_SEQ_LENGTH_DE
 print('Deutch Vocabulary Size: %d' % deu_vocab_size)
 
 
@@ -247,7 +251,7 @@ def build_model(in_vocab, out_vocab, in_timesteps, out_timesteps, units):
 # In[25]:
 
 
-model = build_model(deu_vocab_size, eng_vocab_size, deu_length, eng_length, 512)
+model = build_model(deu_vocab_size, eng_vocab_size, deu_length, eng_length, EMBEDDING_SIZE)
 rms = optimizers.RMSprop(lr=0.001)
 model.compile(optimizer=rms, loss='sparse_categorical_crossentropy')
 
