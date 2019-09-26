@@ -52,3 +52,5 @@ doc3 = nlp("quack quack quack")
 
 print(f"Similarity between '{doc1}' and '{doc2}' : {doc1.similarity(doc2)}")
 print(f"Similarity between '{doc1}' and '{doc3}' : {doc1.similarity(doc3)}")
+
+
