@@ -24,3 +24,11 @@ Replace instances of wget with curl, and redirect output
 e.g. curl http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz > training-parallel-commoncrawl.tgz
 
 cd C:/Users/LeeBorlace/Documents/GitHub/learning-ml/OpenNMT-tf/4-wmt
+
+Was able to run my modified prepare_data.sh OK from bash shell.
+
+The actual training I triggered manually from conda CMD prompt via
+
+`onmt-main train_and_eval --model_type Transformer --config config/wmt_ende.yml --auto_config`.
+
+Had to reduce batch size in the config first.
