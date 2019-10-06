@@ -10,7 +10,7 @@ data:
 
 train:
   save_checkpoints_steps: 1000
-  batch_size: 32
+  batch_size: 2048
 
 eval:
   eval_delay: 3600  # Every 1 hour

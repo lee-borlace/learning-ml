@@ -1,4 +1,9 @@
 # Setting up sentencepiece with logic / eng files
+Run the vocab gen again with 500K words
+
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 4000000 0.63 0.19 0.18 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
+
+
 First, concat all files into one - train.txt
 
 `type english-train.txt >> train.txt`
@@ -16,3 +21,6 @@ First, concat all files into one - train.txt
 
 # Training
 `onmt-main train_and_eval --model_type Transformer --config config.yml --auto_config`
+
+# Batch file
+generate_encode_train.bat
