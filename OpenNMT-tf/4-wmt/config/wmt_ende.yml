@@ -13,7 +13,7 @@ train:
   batch_size: 2048
 
 eval:
-  eval_delay: 3600  # Every 1 hour
+  eval_delay: 900  # Every 15 min
   external_evaluators: BLEU
 
 infer:
