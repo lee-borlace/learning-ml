@@ -10,3 +10,4 @@ data:
 
 eval:
   eval_delay: 1800  # Every 30 min
+  save_eval_predictions: true

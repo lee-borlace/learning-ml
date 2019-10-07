@@ -19,10 +19,23 @@ Encode the various train, val, test files with that model. The following is also
 `spm_encode --model=en_logic.model < english-test.txt > english-test.encoded.txt`
 `spm_encode --model=en_logic.model < logic-test.txt > logic-test.encoded.txt`
 
+Process the vocab file in BASH shell -
+
+First, back up the vocab file
+
+`cut -f 1 en_logic.vocab | tail -n +2 > en_logic.vocab.tmp`
+
+`sed -i '1i<blank>' en_logic.vocab.tmp`
+
+`perl -pe '$/=""; s/\n\n/\n\t\n/;' en_logic.vocab.tmp > en_logic.vocab`
+
+Now we can train
+
 `onmt-main train_and_eval --model_type Transformer --config config.yml --auto_config`
 
 # Inference
 `onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file logic-test.encoded.txt > english-test.generated.encoded.txt`
+
 `spm_decode --model=en_logic.model --input_format=piece < english-test.generated.encoded.txt > english-test.generated.decoded.txt`
 
 
