@@ -1,16 +1,10 @@
 # Setting up sentencepiece with logic / eng files
-Run the vocab gen again with 500K words
-
-`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 4000000 0.63 0.19 0.18 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
-
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.63 0.19 0.18 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
 
 First, concat all files into one - train.txt
 
 `type english-train.txt >> train.txt`
 `type logic-train.txt >> train.txt`
-`type english-val.txt >> train.txt`
-`type logic-val.txt >> train.txt`
-
 
 `spm_train --input=train.txt --model_prefix=en_logic --vocab_size=30000 --character_coverage=1`
 
