@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-# This file imports vocab.json as generated previously and builds up a multi-layered dict to map each kemma to its various forms. The first level
+# This program imports vocab.json as generated previously and builds up a multi-layered dict to map each kemma to its various forms. The first level
 # maps to pos e.g. NOUN, VERB, the 2nd level maps to tag e.g. NN.
 
 import json
 import sys
 
-VOCAB_PATH = ".\\vocab.100k.json"
+# VOCAB_PATH = ".\\vocab.100k.json"
+VOCAB_PATH = ".\\vocab.500k.json"
 
 with open(VOCAB_PATH) as json_file:
     vocab_items = json.load(json_file)
@@ -45,6 +46,10 @@ for pos_item_key in vocab_items:
             # Get store text against lemma + pos + tag
             entry_for_lemma_and_pos[tag] = text
             
+out_file = open("lemma_dict.json", "w+")
+out_file.write(json.dumps(lemma_dict))
+
+print("Done!")
         
     
 
