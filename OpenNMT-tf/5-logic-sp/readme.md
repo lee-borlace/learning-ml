@@ -54,3 +54,34 @@ To calculate BLEU (from BASH) :
 `python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
 
 `spm_train --input=train.txt --model_prefix=en_logic --vocab_size=32000 --character_coverage=1`
+
+Got pretty low loss, but even so, when evaluating it got a lot of words wrong (usually last word in the sentence)
+
+Ideas for next iteration : 
+- Bigger vocab
+- Sort by popularity then use normal distribution when choosing random verbs etc - so more popular words tend to be used more. Can then maybe get away with a smaller vocab
+
+## 8/10/19 
+From Anaconda prompt :
+
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 2000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 data`
+
+`type data\english-train.txt >> data\train.txt`
+`type data\logic-train.txt >> data\train.txt`
+
+`spm_train --input=data\train.txt --model_prefix=en_logic --vocab_size=32997 --character_coverage=1`
+
+`encode.bat`
+
+From BASH : 
+
+`cd C:/Users/LeeBorlace/Documents/GitHub/learning-ml/OpenNMT-tf/5-logic-sp`
+`cut -f 1 en_logic.vocab | tail -n +2 > en_logic.vocab.tmp`
+`sed -i '1i<blank>' en_logic.vocab.tmp`
+`perl -pe '$/=""; s/\n\n/\n\t\n/;' en_logic.vocab.tmp > en_logic.vocab`
+
+From Anaconda prompt :
+
+`onmt-main train_and_eval --model_type Transformer --config config.yml --auto_config`
+
+`tensorboard --logdir="model"`

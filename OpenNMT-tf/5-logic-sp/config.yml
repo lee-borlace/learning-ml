@@ -1,10 +1,10 @@
 model_dir: model
 
 data:
-  train_features_file: logic-train.encoded.txt
-  train_labels_file: english-train.encoded.txt
-  eval_features_file: logic-val.encoded.txt
-  eval_labels_file: english-val.encoded.txt
+  train_features_file: data\logic-train.encoded.txt
+  train_labels_file: data\english-train.encoded.txt
+  eval_features_file: data\logic-val.encoded.txt
+  eval_labels_file: data\english-val.encoded.txt
   source_words_vocabulary: en_logic.vocab
   target_words_vocabulary: en_logic.vocab
 
