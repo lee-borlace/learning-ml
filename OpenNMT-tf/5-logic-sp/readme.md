@@ -85,3 +85,9 @@ From Anaconda prompt :
 `onmt-main train_and_eval --model_type Transformer --config config.yml --auto_config`
 
 `tensorboard --logdir="model"`
+
+To infer :
+
+`onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file data\logic-test.encoded.txt > data\english-test.generated.encoded.txt`
+
+`spm_decode --model=en_logic.model --input_format=piece < data\english-test.generated.encoded.txt > data\english-test.generated.decoded.txt`
