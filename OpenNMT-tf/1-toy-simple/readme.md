@@ -5,6 +5,18 @@ http://opennmt.net/OpenNMT-tf/quickstart.html
 `onmt-build-vocab --size 50000 --save_vocab src-vocab.txt src-train.txt`
 `onmt-build-vocab --size 50000 --save_vocab tgt-vocab.txt tgt-train.txt`
 
+## Notes on V2 and Windows Incompatibility
+V 2.X has been released now - https://github.com/OpenNMT/OpenNMT-tf/releases/tag/v2.0.1
+
+There is a problem with one of the dependencies though - tensorflow-addons has no Windows version yet - https://github.com/tensorflow/addons/issues/222.
+
+For now, just install the latest 1.X.X version of opennmt-tf and corresponding tensorflow -
+
+`pip install OpenNMT-tf==1.25.1`
+``
+
+
+
 # Training
 `onmt-main train_and_eval --model_type NMTSmall --auto_config --config data.yml`
 
