@@ -34,10 +34,19 @@ Now we can train
 `onmt-main train_and_eval --model_type Transformer --config config.yml --auto_config`
 
 # Inference
-`onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file logic-test.encoded.txt > english-test.generated.encoded.txt`
+## Mini set
+`onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file logic-test.encoded.mini.txt > english-test.generated.encoded.mini.txt`
 
+`spm_decode --model=en_logic.model --input_format=piece < english-test.generated.encoded.mini.txt > english-test.generated.decoded.mini.txt`
+
+## Full set
+
+`onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file logic-test.encoded.txt > english-test.generated.encoded.txt`
 `spm_decode --model=en_logic.model --input_format=piece < english-test.generated.encoded.txt > english-test.generated.decoded.txt`
 
+To calculate BLEU (from BASH) :
+
+`perl multi-bleu-detok.perl english-test.generated.decoded.txt < english-test.txt`
 
 # Log
 ## 7/10/19
