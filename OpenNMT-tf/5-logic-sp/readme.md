@@ -62,6 +62,9 @@ Ideas for next iteration :
 - Sort by popularity then use normal distribution when choosing random verbs etc - so more popular words tend to be used more. Can then maybe get away with a smaller vocab
 
 ## 8/10/19 
+run ID 20191009_1
+Large files stored here : C:\Users\LeeBorlace\OneDrive - Leecorp\AI\Opennmt-tf\20191009_1 Logic to English
+
 From Anaconda prompt :
 
 `python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 2000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 data`
@@ -91,3 +94,10 @@ To infer :
 `onmt-main infer --config config.yml --auto_config --checkpoint_path=model --features_file data\logic-test.encoded.txt > data\english-test.generated.encoded.txt`
 
 `spm_decode --model=en_logic.model --input_format=piece < data\english-test.generated.encoded.txt > data\english-test.generated.decoded.txt`
+
+From BASH :
+`cd C:/Users/LeeBorlace/Documents/GitHub/learning-ml/OpenNMT-tf/5-logic-sp`
+`perl multi-bleu-detok.perl data/english-test.txt < data/english-test.generated.decoded.txt`
+
+Result :
+BLEU = 85.85, 95.3/91.9/88.1/82.1 (BP=0.962, ratio=0.963, hyp_len=87734, ref_len=91111)

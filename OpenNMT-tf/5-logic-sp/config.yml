@@ -9,5 +9,5 @@ data:
   target_words_vocabulary: en_logic.vocab
 
 eval:
-  eval_delay: 1800  # Every 30 min
+  eval_delay: 7200  # Every 30 min
   save_eval_predictions: true
