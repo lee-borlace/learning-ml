@@ -7,3 +7,6 @@ data:
   eval_labels_file: data\logic-val.txt
   source_words_vocabulary: data\english-vocab.txt
   target_words_vocabulary: data\logic-vocab.txt
+
+eval:
+  save_eval_predictions: true
