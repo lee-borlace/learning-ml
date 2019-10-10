@@ -14,3 +14,7 @@ Note - the last flag stops it from substituting examples
 `onmt-main train_and_eval --model_type Transformer --auto_config --config Transformer_logic_eng.yml`
 
 `tensorboard --logdir="run-logic-eng"`
+
+`onmt-main infer --auto_config --config Transformer_logic_eng.yml --features_file data\logic-test.txt > data\english-test-generated.txt`
+
+Looks like it's overall worked quite well! Almost 100% when testing!
