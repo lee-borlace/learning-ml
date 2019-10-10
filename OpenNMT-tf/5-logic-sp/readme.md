@@ -1,5 +1,5 @@
 # Setting up sentencepiece with logic / eng files
-`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 . True`
 
 First, concat all files into one - train.txt
 
@@ -51,7 +51,7 @@ To calculate BLEU (from BASH) :
 # Log
 ## 7/10/19
 
-`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75`
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 1000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 . True`
 
 `spm_train --input=train.txt --model_prefix=en_logic --vocab_size=32000 --character_coverage=1`
 
@@ -67,7 +67,7 @@ Large files stored here : C:\Users\LeeBorlace\OneDrive - Leecorp\AI\Opennmt-tf\2
 
 From Anaconda prompt :
 
-`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 2000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 data`
+`python ..\..\..\logic-ml-bot\v1\nlu_training_data_generator\generate_train_data.py 2000000 0.98 0.01 0.01 0.0001 0.0001 0.00001 C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\vocab.100k.json C:\Users\LeeBorlace\Documents\GitHub\logic-ml-bot\v1\nlu_training_data_generator\training_templates.json 0.75 data True`
 
 `type data\english-train.txt >> data\train.txt`
 `type data\logic-train.txt >> data\train.txt`

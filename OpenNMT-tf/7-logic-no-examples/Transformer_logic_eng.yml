@@ -1,0 +1,9 @@
+model_dir: run-logic-eng
+
+data:
+  train_features_file: data\logic-train.txt
+  train_labels_file: data\english-train.txt
+  eval_features_file: data\logic-val.txt
+  eval_labels_file: data\english-val.txt
+  source_words_vocabulary: data\logic-vocab.txt
+  target_words_vocabulary: data\english-vocab.txt
