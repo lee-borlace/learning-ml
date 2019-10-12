@@ -1,0 +1,20 @@
+model_dir: model
+
+data:
+  train_features_file: data\logic-train.encoded.txt
+  train_labels_file: data\english-train.encoded.txt
+  eval_features_file: data\logic-val.encoded.txt
+  eval_labels_file: data\english-val.encoded.txt
+  source_words_vocabulary: en_logic.vocab
+  target_words_vocabulary: en_logic.vocab
+
+eval:
+  eval_delay: 3600
+  save_eval_predictions: true
+
+params:
+  beam_width: 3
+  num_hypotheses: 3
+
+infer:
+  n_best: 3
