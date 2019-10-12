@@ -18,3 +18,4 @@ params:
 
 infer:
   n_best: 3
+  with_scores: true
