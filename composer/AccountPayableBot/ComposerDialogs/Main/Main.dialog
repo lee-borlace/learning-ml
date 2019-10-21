@@ -1,0 +1,71 @@
+{
+  "$type": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "AccountPayableBot"
+  },
+  "autoEndDialog": "true",
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$type": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720"
+      },
+      "condition": "toLower(turn.Activity.membersAdded[0].name) != 'bot'",
+      "actions": [
+        {
+          "$type": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "019796",
+            "name": "Send an Activity"
+          },
+          "activity": "[bfdactivity-019796]"
+        },
+        {
+          "$type": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "792043",
+            "name": "Send an Activity"
+          },
+          "activity": "[bfdactivity-792043]"
+        }
+      ]
+    },
+    {
+      "$type": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "298390"
+      },
+      "actions": [
+        {
+          "$type": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "363662",
+            "name": "Begin a Dialog"
+          },
+          "dialog": "NotUnderstood"
+        }
+      ]
+    },
+    {
+      "$type": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "637534"
+      },
+      "intent": "InvoiceStatus",
+      "actions": [
+        {
+          "$type": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "203373",
+            "name": "Begin a Dialog"
+          },
+          "dialog": "InvoiceStatus"
+        }
+      ]
+    }
+  ],
+  "$schema": "../../app.schema",
+  "generator": "common.lg",
+  "recognizer": "Main.lu"
+}

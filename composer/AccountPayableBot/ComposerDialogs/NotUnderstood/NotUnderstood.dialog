@@ -1,0 +1,128 @@
+{
+  "$type": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "NotUnderstood",
+    "id": "530400"
+  },
+  "events": [
+    {
+      "$type": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog"
+      }
+    }
+  ],
+  "autoEndDialog": "true",
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$type": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "id": "212841"
+      },
+      "actions": [
+        {
+          "$type": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "347273",
+            "name": "Branch: If/Else"
+          },
+          "condition": "conversation.handledUnknown == true",
+          "actions": [
+            {
+              "$type": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "469746",
+                "name": "Set a Property"
+              },
+              "property": "conversation.handledUnknown ",
+              "value": "false"
+            },
+            {
+              "$type": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "580230",
+                "name": "Send an Activity"
+              },
+              "activity": "[bfdactivity-580230]"
+            },
+            {
+              "$type": "Microsoft.ConfirmInput",
+              "$designer": {
+                "id": "639158",
+                "name": "Prompt for confirmation"
+              },
+              "prompt": "[bfdprompt-639158]",
+              "maxTurnCount": 3,
+              "property": "conversation.escalate",
+              "alwaysPrompt": true,
+              "allowInterruptions": "false",
+              "defaultLocale": "en-us",
+              "style": "Auto",
+              "choiceOptions": {
+                "inlineSeparator": ", ",
+                "inlineOr": " or ",
+                "inlineOrMore": ", or ",
+                "includeNumbers": false
+              }
+            },
+            {
+              "$type": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "878444",
+                "name": "Branch: If/Else"
+              },
+              "condition": "conversation.escalate",
+              "actions": [
+                {
+                  "$type": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "705509",
+                    "name": "Send an Activity"
+                  },
+                  "activity": "[bfdactivity-705509]"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$type": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "702962",
+                    "name": "Send an Activity"
+                  },
+                  "activity": "[bfdactivity-702962]"
+                }
+              ]
+            },
+            {
+              "$type": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "940919",
+                "name": "End Dialog"
+              }
+            }
+          ],
+          "elseActions": [
+            {
+              "$type": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "079154",
+                "name": "Send an Activity"
+              },
+              "activity": "[bfdactivity-079154]"
+            },
+            {
+              "$type": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "623635",
+                "name": "Set a Property"
+              },
+              "property": "conversation.handledUnknown ",
+              "value": "true"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

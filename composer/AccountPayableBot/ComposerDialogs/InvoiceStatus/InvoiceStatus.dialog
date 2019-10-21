@@ -1,0 +1,154 @@
+{
+  "$type": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "InvoiceStatus",
+    "id": "261476"
+  },
+  "autoEndDialog": "true",
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$type": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "143787"
+      },
+      "actions": [
+        {
+          "$type": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "449703",
+            "name": "Begin a Dialog"
+          },
+          "dialog": "NotUnderstood"
+        }
+      ]
+    },
+    {
+      "$type": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "id": "328703"
+      },
+      "actions": [
+        {
+          "$type": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "224951",
+            "name": "Set a Property"
+          },
+          "property": "dialog.invNum",
+          "value": "@invNum"
+        },
+        {
+          "$type": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "580622",
+            "name": "Branch: If/Else"
+          },
+          "condition": "dialog.invNum == null || length(dialog.invNum) == 0",
+          "actions": [
+            {
+              "$type": "Microsoft.TextInput",
+              "$designer": {
+                "id": "261279",
+                "name": "Prompt for text"
+              },
+              "prompt": "[bfdprompt-261279]",
+              "maxTurnCount": 3,
+              "property": "dialog.invNum",
+              "alwaysPrompt": true,
+              "allowInterruptions": "true",
+              "outputFormat": "trim"
+            }
+          ]
+        },
+        {
+          "$type": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "889430",
+            "name": "Send an Activity"
+          },
+          "activity": "[bfdactivity-889430]"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "$type": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog"
+      }
+    }
+  ],
+  "null": {
+    "triggers": [
+      {
+        "$type": "Microsoft.AdaptiveDialog",
+        "$designer": {
+          "name": "InvoiceStatus",
+          "id": "261476"
+        },
+        "autoEndDialog": "true",
+        "defaultResultProperty": "dialog.result",
+        "recognizer": "InvoiceStatus.lu",
+        "triggers": [
+          {
+            "$type": "Microsoft.OnIntent",
+            "$designer": {
+              "id": "211662"
+            },
+            "actions": [
+              {
+                "$type": "Microsoft.IfCondition",
+                "$designer": {
+                  "id": "836277",
+                  "name": "Branch: If/Else"
+                },
+                "condition": "invNum != \"\"",
+                "elseActions": [
+                  {
+                    "$type": "Microsoft.TextInput",
+                    "$designer": {
+                      "id": "822253",
+                      "name": "Prompt for text"
+                    },
+                    "prompt": "[bfdprompt-822253]",
+                    "maxTurnCount": 3,
+                    "property": "invNum",
+                    "alwaysPrompt": false,
+                    "allowInterruptions": "true",
+                    "outputFormat": "none"
+                  }
+                ]
+              },
+              {
+                "$type": "Microsoft.SendActivity",
+                "$designer": {
+                  "id": "838383",
+                  "name": "Send an Activity"
+                },
+                "activity": "[bfdactivity-838383]"
+              }
+            ],
+            "intent": "InvoiceStatus"
+          },
+          {
+            "$type": "Microsoft.OnUnknownIntent",
+            "$designer": {
+              "id": "031649",
+              "name": "Handle Unknown Intent"
+            }
+          }
+        ],
+        "events": [
+          {
+            "$type": "Microsoft.OnBeginDialog",
+            "$designer": {
+              "name": "BeginDialog"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

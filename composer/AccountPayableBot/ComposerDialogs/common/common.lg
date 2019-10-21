@@ -1,0 +1,70 @@
+
+
+# bfdactivity-019796
+- Hi there, I'm Alan, the the Account Payable bot!
+- Hi there, I'm Alan, the Accounts Payable bot!
+- Gday, I'm the Accounts Payable bot. You can call me Alan.
+
+# bfdactivity-340409
+
+# bfdactivity-792043
+-I can help you with invoices, purchase orders and suppliers.
+
+# bfdactivity-047265
+
+# bfdactivity-880441
+-Sorry I didn't catch that
+-Come again?
+-Sorry I missed that
+
+# bfdactivity-025341
+-Sorry, I missed that, would you 
+
+# bfdactivity-874370
+-Escalating to a person...
+
+# bfdactivity-088280
+-That invoice is closed!
+-Its status is closed.
+
+# bfdactivity-642725
+- The status is closed
+
+# bfdprompt-822253
+-What's the invoice number?
+
+# bfdactivity-838383
+- Its status is closed.
+
+# bfdactivity-714306
+-Sorry, I didn't catch that
+-Sorry, missed that
+
+# bfdprompt-804967
+-Do you want to speak to a person?
+
+# bfdprompt-639158
+-Do you want to speak to a person?
+
+# bfdactivity-705509
+-No worries. I have logged a ticket for someone to get in touch. Your reference is #565465.
+
+# bfdactivity-702962
+-No problem. Maybe try asking the question a different way?
+
+# bfdactivity-079154
+-Sorry, I missed that
+-Come again?
+
+# bfdactivity-889430
+- The status of invoice {dialog.invNum} is CLOSED.
+
+
+# bfdactivity-580230
+- Sorry, I still didn't catch that.
+- Sorry, I still don't understand.
+
+
+# bfdprompt-261279
+- What's the invoice number please?
+- Can you please give me the invoice number?

@@ -1,0 +1,45 @@
+%YAML 1.1
+---
+actions:
+- utter_another_invoice
+- utter_cheer_up
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_invoice_number_please
+- utter_invoice_paid
+- utter_please_wait
+- utter_sign_off
+intents:
+- invoice_status
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+templates:
+  utter_another_invoice:
+  - text: Did you want to look up another invoice?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_good_thanks:
+  - text: I'm great too, thanks!
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! How are you?
+  utter_happy:
+  - text: Great carry on!
+  utter_invoice_number_please:
+  - text: What's the invoice number please?
+  utter_invoice_paid:
+  - text: That invoice has been paid
+  utter_please_wait:
+  - text: Give me a second while I have a look
+  utter_sign_off:
+  - text: No worries, let me know if I can help you with anything else
